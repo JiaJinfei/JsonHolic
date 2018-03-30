@@ -121,8 +121,8 @@ load=function(){
 		}});
     tableTemplate=buildTemplate("table");
     for(var i=0;i<10;i++){
+	tr=buildTemplate("tr")
 	for(var j=0;j<10;j++){
-	    tr=buildTemplate("tr")
 	    console.log(i*j%2==1);
 	    if(i*j%2==1)
 		tr.addItem(buildTemplate("td").addItem(tmpTemplate.setParam("src","http://i0.hdslb.com/bfs/archive/0ac04c23af3b3297bf02dca163474326898d211d.png")));
