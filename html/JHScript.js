@@ -114,21 +114,24 @@ updateCell=function(template,JQObj)
 
 load=function(){
     
-    tmpTemplate= buildTemplate("img").setParams( 
+    tmpTemplate=function(){ 
+	return buildTemplate("img").setParams( 
 	    {
 		click:function(){
 		    this.src="http://i0.hdslb.com/bfs/space/359fc6fef17ae0a15df4e4f98bd37ca3f18bdf44.png";
 		}});
+    }
     tableTemplate=buildTemplate("table");
     for(var i=0;i<10;i++){
 	tr=buildTemplate("tr")
 	for(var j=0;j<10;j++){
 	    console.log(i*j%2==1);
 	    if(i*j%2==1)
-		tr.addItem(buildTemplate("td").addItem(tmpTemplate.setParam("src","http://i0.hdslb.com/bfs/archive/0ac04c23af3b3297bf02dca163474326898d211d.png")));
+		tr.addItem(buildTemplate("td").addItem(tmpTemplate().setParam("src","http://i0.hdslb.com/bfs/archive/0ac04c23af3b3297bf02dca163474326898d211d.png")));
 	    else
-		tr.addItem(buildTemplate("td").addItem(tmpTemplate.setParam("src","http://i0.hdslb.com/bfs/space/359fc6fef17ae0a15df4e4f98bd37ca3f18bdf44.png")));
+		tr.addItem(buildTemplate("td").addItem(tmpTemplate().setParam("src","http://i0.hdslb.com/bfs/space/359fc6fef17ae0a15df4e4f98bd37ca3f18bdf44.png")));
 	}
+	debugger;
 	tableTemplate.addItem(tr);
     }
     
